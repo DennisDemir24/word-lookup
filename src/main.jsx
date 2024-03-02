@@ -8,11 +8,14 @@ import {
 } from 'react-router-dom'
 import App from './App.jsx'
 import './index.css'
+import AddWordPage from './pages/AddWordPage.jsx'
+import HomePage from './pages/HomePage.jsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<App />}>
-      
+      <Route index={true} path='/' element={<HomePage />} />
+      <Route path='/word/add-word' element={<AddWordPage />} />
     </Route>
   )
 )

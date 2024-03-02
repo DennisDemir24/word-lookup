@@ -23,6 +23,25 @@ export const addWord = async (req, res) => {
       // Save the word to the database
       await existingWord.save()
 
+      // Update synonyms transitively
+      synonyms.forEach(async (synonym) => {
+        let synonymEntry = await WordModel.findOne({ word: synonym })
+
+        if (synonymEntry) {
+          synonymEntry.synonyms = Array.from(
+            new Set([...synonymEntry.synonyms, word, ...synonyms])
+          )
+        } else {
+          synonymEntry = new WordModel({
+            word: synonym,
+            synonyms: [word, ...synonyms],
+          })
+        }
+
+        // Save the synonym entry to the database
+        await synonymEntry.save()
+      })
+
       res.status(200).json({ message: 'Word added successfully.' })
     } catch (error) {
       console.error(error)
