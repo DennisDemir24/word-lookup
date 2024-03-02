@@ -16,32 +16,6 @@ function App() {
               {/* SEARCH Button */}
               <button>Search</button>
             </div>
-            <div>
-              {/* WORD */}
-              <h2>Word</h2>
-              {/* MEANING */}
-              <h2>Meaning</h2>
-              {/* EXAMPLE */}
-              <h2>Example</h2>
-              {/* SENTENCE */}
-              <h2>Sentence</h2>
-              {/* SENTENCE */}
-              <h2>Sentence</h2>
-              {/* SENTENCE */}
-              <h2>Sentence</h2>
-              {/* SENTENCE */}
-              <h2>Sentence</h2>
-              {/* SENTENCE */}
-              <h2>Sentence</h2>
-              {/* SENTENCE */}
-              <h2>Sentence</h2>
-              {/* SENTENCE */}
-              <h2>Sentence</h2>
-              {/* SENTENCE */}
-              <h2>Sentence</h2>
-              {/* SENTENCE */}
-              <h2>Sentence</h2>
-            </div>
           </div>
         </section>
       </main>
