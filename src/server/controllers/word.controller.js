@@ -72,13 +72,13 @@ export const getSynonyms = async (req, res) => {
 
 export const searchWord = async (req, res) => {
     try {
-      const { query } = req.params
+      const { word } = req.params
 
       // Search for the word or synonym in the database
       const result = await WordModel.find({
         $or: [
-          { word: { $regex: query, $options: 'i' } }, // Case-insensitive search for the word
-          { synonyms: { $in: [query] } },
+          { word: { $regex: word, $options: 'i' } }, // Case-insensitive search for the word
+          { synonyms: { $in: [word] } },
         ],
       })
 
