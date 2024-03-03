@@ -17,15 +17,11 @@ const SearchForm = ({ onSearchResults }) => {
 
   return (
     <div>
-      <h2>Search Words</h2>
-      <label>
-        Search for a word:
         <input
           type='text'
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
-      </label>
       <button onClick={handleSearch}>Search</button>
     </div>
   )

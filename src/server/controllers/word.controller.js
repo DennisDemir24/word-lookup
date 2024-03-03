@@ -88,3 +88,21 @@ export const searchWord = async (req, res) => {
       res.status(500).json({ error: 'Internal server error' })
     }
 }
+
+export const getRandomWord = async (req, res) => {
+  try {
+    // Count the total number of documents in the WordModel collection
+    const count = await WordModel.countDocuments()
+
+    // Generate a random index
+    const randomIndex = Math.floor(Math.random() * count)
+
+    // Retrieve a random word from the database
+    const randomWord = await WordModel.findOne().skip(randomIndex)
+
+    res.status(200).json(randomWord)
+  } catch (error) {
+    console.error(error)
+    res.status(500).json({ error: 'Internal server error' })
+  }
+}

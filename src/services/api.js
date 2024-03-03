@@ -38,3 +38,19 @@ export const searchWord = async (word) => {
     throw error
   }
 }
+
+export const getRandomWord = async () => {
+  try {
+    const response = await fetch(`${apiUrl}/random`)
+
+    if (!response.ok) {
+      throw new Error('Failed to get a random word')
+    }
+
+    const result = await response.json()
+    return result
+  } catch (error) {
+    console.error('Error getting a random word:', error)
+    throw error
+  }
+}
