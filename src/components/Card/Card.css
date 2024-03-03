@@ -1,0 +1,10 @@
+/* Generate styles for a card component */
+.card {
+    background-color: #fff;
+    color: #000;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    margin: 16px;
+    width: 300px;
+}
