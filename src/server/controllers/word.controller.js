@@ -69,3 +69,22 @@ export const getSynonyms = async (req, res) => {
       res.status(500).json({ error: 'Internal server error' })
     }
 }
+
+export const searchWord = async (req, res) => {
+    try {
+      const { query } = req.params
+
+      // Search for the word or synonym in the database
+      const result = await WordModel.find({
+        $or: [
+          { word: { $regex: query, $options: 'i' } }, // Case-insensitive search for the word
+          { synonyms: { $in: [query] } },
+        ],
+      })
+
+      res.status(200).json(result)
+    } catch (error) {
+      console.error(error)
+      res.status(500).json({ error: 'Internal server error' })
+    }
+}
