@@ -6,6 +6,7 @@ export const addWord = async (wordData) => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
       },
       body: JSON.stringify(wordData),
     })
@@ -25,7 +26,13 @@ export const addWord = async (wordData) => {
 export const searchWord = async (word) => {
 
   try {
-    const response = await fetch(`${apiUrl}/search/${word}`)
+    const response = await fetch(`${apiUrl}/search/${word}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+      },
+    })
 
     if (!response.ok) {
       throw new Error('Failed to search word')
@@ -41,7 +48,13 @@ export const searchWord = async (word) => {
 
 export const getRandomWord = async () => {
   try {
-    const response = await fetch(`${apiUrl}/random`)
+    const response = await fetch(`${apiUrl}/random`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+      },
+    })
 
     if (!response.ok) {
       throw new Error('Failed to get a random word')
