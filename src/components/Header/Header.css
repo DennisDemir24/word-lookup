@@ -26,6 +26,22 @@
     font-weight: bold;
 }
 
+.add-button {
+    background-color: #593C8F;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.add-button:hover {
+    background-color: transparent;
+    border: 1px solid #593C8F;
+    color: #fff !important;
+}
+
 .link:hover {
     color: #593C8F;
 }

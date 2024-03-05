@@ -1,11 +1,13 @@
 /* eslint-disable react/prop-types */
 import { useState } from 'react'
-import { searchWord } from '../services/api'
+import { searchWord } from '../../services/api'
+import './SearchForm.css'
 
 const SearchForm = ({ onSearchResults }) => {
   const [searchQuery, setSearchQuery] = useState('')
 
-  const handleSearch = async () => {
+  const handleSearch = async (e) => {
+    e.preventDefault()
     try {
       const results = await searchWord(searchQuery)
 
@@ -24,21 +26,15 @@ const SearchForm = ({ onSearchResults }) => {
   }
 
   return (
-    <div>
-      <input
-        type='text'
-        value={searchQuery}
-        onChange={(e) => setSearchQuery(e.target.value)}
-      />
-      <button
-        style={{
-          backgroundColor: '#593C8F',
-          color: 'white',
-        }}
-        onClick={handleSearch}
-      >
-        Search
-      </button>
+    <div className='form-wrapper'>
+      <form onSubmit={handleSearch}>
+        <input
+          type='text'
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+        />
+        <button>Search</button>
+      </form>
     </div>
   )
 }

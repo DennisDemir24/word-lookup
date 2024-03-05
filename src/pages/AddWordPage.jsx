@@ -19,28 +19,25 @@ const AddWordPage = () => {
     }
 
   return (
-    <div>
-      <h2>Add a Word</h2>
-      <label>
-        Word:
+    <section className='add-word-section'>
+      <div className='form-wrapper'>
+        <p>Word</p>
         <input
           type='text'
           value={word}
           onChange={(e) => setWord(e.target.value)}
         />
-      </label>
-      <br />
-      <label>
-        Synonyms (comma-separated):
+        <br />
+        <p> Synonyms (comma-separated):</p>
         <input
           type='text'
           value={synonyms}
           onChange={(e) => setSynonyms(e.target.value)}
         />
-      </label>
-      <br />
-      <button onClick={handleAddWord}>Add Word</button>
-    </div>
+        <br />
+        <button onClick={handleAddWord}>Add Word</button>
+      </div>
+    </section>
   )
 }
 

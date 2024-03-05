@@ -1,0 +1,29 @@
+.form-wrapper {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 15px;
+    gap: 15px;
+}
+
+input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+button {
+    padding: 10px 16px;
+    background-color: #593C8F;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+button:hover {
+    box-shadow: 0 0 15px rgba(87, 2, 162, 0.5);
+}

@@ -1,16 +1,17 @@
 import './Header.css'
+import { Link } from 'react-router-dom'
 
 const Header = () => {
   return (
     <header className='header'>
       <h1 className='logo-text'>Word-lookup</h1>
       <div className='link-wrapper'>
-        <a className='link' href='/'>
+        <Link className='link' to='/'>
           Home
-        </a>
-        <a className='link' href='/word/add-word'>
-          Add Word
-        </a>
+        </Link>
+        <Link className='link add-button' to='/word/add-word'>
+          + Add Word
+        </Link>
       </div>
     </header>
   )
