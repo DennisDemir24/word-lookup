@@ -19,6 +19,8 @@ app.use((req, res, next) => {
 })
 app.use(cors({
   origin: 'https://word-lookup.vercel.app',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true
 }))
 
 app.use(express.json());

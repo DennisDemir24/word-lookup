@@ -4,7 +4,6 @@ export const addWord = async (wordData) => {
   try {
     const response = await fetch(`${apiUrl}/add`, {
       method: 'POST',
-      mode: 'no-cors',
       headers: {
         'Content-Type': 'application/json',
       },
@@ -28,7 +27,6 @@ export const searchWord = async (word) => {
   try {
     const response = await fetch(`${apiUrl}/search/${word}`, {
       method: 'GET',
-      mode: 'no-cors',
       headers: {
         'Content-Type': 'application/json',
       },
@@ -50,7 +48,6 @@ export const getRandomWord = async () => {
   try {
     const response = await fetch(`${apiUrl}/random`, {
       method: 'GET',
-      mode: 'no-cors',
       headers: {
         'Content-Type': 'application/json',
       },
