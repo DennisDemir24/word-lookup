@@ -1,12 +1,12 @@
-const apiUrl = 'https://word-lookup-0clw.onrender.com/api'
+const apiUrl = 'https://word-lookup-jh9d.onrender.com/api'
 
 export const addWord = async (wordData) => {
   try {
     const response = await fetch(`${apiUrl}/add`, {
       method: 'POST',
+      mode: 'no-cors',
       headers: {
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
       },
       body: JSON.stringify(wordData),
     })
@@ -28,9 +28,9 @@ export const searchWord = async (word) => {
   try {
     const response = await fetch(`${apiUrl}/search/${word}`, {
       method: 'GET',
+      mode: 'no-cors',
       headers: {
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
       },
     })
 
@@ -50,9 +50,9 @@ export const getRandomWord = async () => {
   try {
     const response = await fetch(`${apiUrl}/random`, {
       method: 'GET',
+      mode: 'no-cors',
       headers: {
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
       },
     })
 
