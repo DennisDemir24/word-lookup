@@ -1,21 +1,20 @@
 # Use the official Node.js 16 image as a base image
-FROM node:18
+FROM node:16
 
 # Set the working directory in the container
-WORKDIR /src
+WORKDIR /app
 
 # Copy package.json and package-lock.json to the working directory
 COPY package*.json ./
 
 # Install dependencies
-RUN npm install -g bun
-RUN bun install
+RUN npm install
 
 # Copy the rest of the application code
 COPY . .
 
-# Expose the port your app runs on
+# Expose the port your app runs on (adjust if your app uses a different port)
 EXPOSE 8080
 
 # Define the command to run your app
-CMD ["bun", "--watch", "run", "src/server/index.js"]
+CMD ["node", "server/index.js"]

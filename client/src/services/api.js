@@ -1,4 +1,4 @@
-const apiUrl = 'https://word-lookup-jh9d.onrender.com/api'
+const apiUrl = 'https://word-lookup-cd73.onrender.com/api'
 
 export const addWord = async (wordData) => {
   try {
