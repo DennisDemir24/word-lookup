@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      '/api': 'https://word-lookup-jh9d.onrender.com',
+      '/api': 'https://word-lookup-server.vercel.app',
     },
   },
 })
