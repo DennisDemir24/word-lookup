@@ -1,5 +1,5 @@
 import express from "express";
-import { addWord, getRandomWord, getSynonyms, searchWord } from "../controllers/word.controller";
+import { addWord, getRandomWord, getSynonyms, searchWord } from "../controllers/wordController.js";
 const router = express.Router();
 
 router.post("/add", addWord);

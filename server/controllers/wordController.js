@@ -1,4 +1,4 @@
-import WordModel from "../models/word.model";
+import WordModel from "../models/Word.js";
 
 export const addWord = async (req, res) => {
     try {
