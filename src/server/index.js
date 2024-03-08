@@ -11,13 +11,13 @@ connectDB();
 
 const app = express();
 
-app.use(cors())
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', 'https://word-lookup.vercel.app')
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE')
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization')
   next()
 })
+app.use(cors())
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }))
