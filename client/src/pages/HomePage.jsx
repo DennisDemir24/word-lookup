@@ -1,4 +1,5 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import { getRandomWord } from "../services/api"
 import SearchForm from "../components/SearchForm/SearchForm"
 import Card from "../components/Card/Card"
 import './pages.css'
@@ -6,10 +7,23 @@ import './pages.css'
 const HomePage = () => {
     const [searchResults, setSearchResults] = useState([])
     const [searchMessage, setSearchMessage] = useState('')
+    const [randomWord, setRandomWord] = useState([])
+
     const handleSearchResults = (results) => {
       setSearchResults(results)
       setSearchMessage(results.length === 0 ? 'No such word exists in the dictionary. You can add it and its synonyms using the add word button.' : '')
     }
+
+    useEffect(() => {
+      const fetchRandomWord = async () => {
+        const word = await getRandomWord()
+        setRandomWord(word)
+      }
+      fetchRandomWord()
+    }, [])
+
+    console.log("random word",randomWord)
+
 
 
   return (
