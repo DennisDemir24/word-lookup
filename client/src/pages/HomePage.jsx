@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import { useState, useEffect } from "react"
 import { getRandomWord } from "../services/api"
 import SearchForm from "../components/SearchForm/SearchForm"
@@ -9,9 +10,29 @@ const HomePage = () => {
     const [searchMessage, setSearchMessage] = useState('')
     const [randomWord, setRandomWord] = useState([])
 
+    const callOpenAI = async () => {
+        console.log("OPEN AI")
+        const response = await fetch('https://api.openai.com/v1/completions', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${process.env.REACT_APP_OPENAI_API_KEY}`
+          },
+          body: JSON.stringify({
+            model: 'text-davinci-003',
+            prompt: `Create a sentence with the word ${randomWord.word}`,
+            max_tokens: 1000,
+        })
+      })
+      const data = await response.json()
+      console.log("DATA",data)
+    }
+
     const handleSearchResults = (results) => {
       setSearchResults(results)
+      console.log("results",searchResults)
       setSearchMessage(results.length === 0 ? 'No such word exists in the dictionary. You can add it and its synonyms using the add word button.' : '')
+      callOpenAI()
     }
 
     useEffect(() => {
