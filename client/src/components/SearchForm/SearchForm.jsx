@@ -13,7 +13,6 @@ const SearchForm = ({ onSearchResults }) => {
 
       // Match results with the search query
       const matchedResults = results.filter((result) => {
-        // Replace this condition with your matching logic
         return result.word.toLowerCase().includes(searchQuery.toLowerCase())
       })
 
